@@ -1,0 +1,36 @@
+<html>
+<head>
+    <title>Update Form</title>
+    {% include 'movies/bootstraplines.html' %}
+</head>
+<body>
+<style>
+    body{
+        background-color: lightcyan;
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="offset-md-3 col-md-6">
+            <form method="POST">
+                <h2 class="text-center">Please Update Data Here...</h2>
+                {% csrf_token %}
+                {{ form }}
+                {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+    {% endfor %}
+</ul>
+{% endif %}
+                <center>
+                    <input type="submit" value="Update" class="btn btn-success" >
+                    <input type="reset" value="Clear" class="btn btn-danger"><br>
+                    <a class="text-center btn btn-success" href="/">Goto Home Page</a>
+                </center>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

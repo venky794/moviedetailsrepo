@@ -1,0 +1,40 @@
+<html>
+<head>
+    <title>Creating Form</title>
+    {% include 'movies/bootstraplines.html' %}
+</head>
+<body>
+<style>
+    a{
+        margin-top: 5px;
+    }
+    body{
+        background-color: lightcyan;
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="offset-md-3 col-md-6">
+            <form method="POST" id="f">
+                {% csrf_token %}
+                {{ form }}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+    {% endfor %}
+</ul>
+{% endif %}
+                <center>
+                    <button type="submit" value="submit" class="btn btn-success" onclick="myFunction()" style="align:right;">submit</button>
+                    <input type="reset" value="clear" class="btn btn-danger"><br>
+                    <a class="text-center" href="/">Goto Home Page</a>
+                </center>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+<script type="javascript">
+</script>
+</html>

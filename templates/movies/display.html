@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>Retrieve Form</title>
+    {% include 'movies/bootstraplines.html' %}
+</head>
+<body>
+<style>
+    body{
+        background-color: lightcyan;
+    }
+</style>
+{% if details %}
+    <h2 class="text-center">Movie Details</h2>
+    <table class="table table-bordered text-center table-hover">
+    <thead class="bg-success text-white">
+    <tr>
+        <th>movie ID</th>
+        <th>Movie_name</th>
+        <th>Timings</th>
+        <th>Location</th>
+    </tr>
+    </thead>
+    <tbody class="bg-dark text-white">
+    {% for i in details %}
+        <tr>
+        <td>{{ i.movie_id }}</td>
+        <td>{{ i.movie_name }}</td>
+        <td>{{ i.timings }}</td>
+        <td>{{ i.location }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+    <a class="text-center btn btn-success" href="/#/">Goto Home Page</a>
+    {% else %}
+    <h2>Data is Not Available</h2>
+{% endif %}
+</body>
+</html>
